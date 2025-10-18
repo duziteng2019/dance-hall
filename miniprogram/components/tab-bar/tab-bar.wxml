@@ -1,0 +1,20 @@
+<!-- 底部导航栏组件 -->
+<view class="tab-bar">
+  <view 
+    class="tab-item {{activeIndex === 0 ? 'active' : ''}}" 
+    bindtap="onTabChange" 
+    data-index="0"
+  >
+    <text class="tab-icon">🏠</text>
+    <text class="tab-text">首页</text>
+  </view>
+  
+  <view 
+    class="tab-item {{activeIndex === 1 ? 'active' : ''}}" 
+    bindtap="onTabChange" 
+    data-index="1"
+  >
+    <text class="tab-icon">👤</text>
+    <text class="tab-text">我的</text>
+  </view>
+</view>

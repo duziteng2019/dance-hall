@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/profile/profile",
+    "pages/user/user",
+    "pages/collection/collection",
+    "pages/history/history"
+  ],
+  "window": {
+    "navigationBarTitleText": "舞厅小程序",
+    "navigationBarBackgroundColor": "#8b5cf6",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f9fafb",
+    "backgroundTextStyle": "light"
+  },
+  "usingComponents": {
+    "custom-icon": "/components/icon/icon"
+  },
+  "tabBar": {
+    "color": "#6b7280",
+    "selectedColor": "#6d28d9",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "/images/tabbar/profile.png",
+        "selectedIconPath": "/images/tabbar/profile-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于展示附近的舞厅"
+    }
+  },
+  "cloud": true
+}

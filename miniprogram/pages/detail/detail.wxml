@@ -1,0 +1,141 @@
+<!-- 详情页 - 现代UI设计 -->
+<view class="detail-container">
+  <!-- 顶部图片轮播 -->
+  <view class="gallery-container">
+    <swiper 
+      class="gallery-swiper" 
+      indicator-dots="{{true}}" 
+      autoplay="{{true}}" 
+      interval="3000"
+      indicator-color="rgba(255,255,255,0.3)"
+      indicator-active-color="#8a2be2"
+    >
+      <swiper-item wx:for="{{hallInfo.photos}}" wx:key="*this">
+        <image src="{{item}}" class="gallery-image" mode="aspectFill" />
+      </swiper-item>
+      <swiper-item wx:if="{{!hallInfo.photos || hallInfo.photos.length === 0}}">
+        <view class="placeholder-image">
+          <text class="placeholder-icon">💃</text>
+          <text class="placeholder-text">舞厅图片</text>
+        </view>
+      </swiper-item>
+    </swiper>
+    
+    <!-- 返回按钮 -->
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    
+    <!-- 收藏按钮 -->
+    <button 
+      class="favorite-btn {{isCollected ? 'active' : ''}}" 
+      bindtap="onToggleFavorite"
+    >
+      <text class="favorite-icon">{{isCollected ? '♥' : '♡'}}</text>
+    </button>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <view class="content-section">
+    <!-- 基本信息卡片 -->
+    <view class="dance-card info-card">
+      <view class="card-header">
+        <text class="dance-name">{{hallInfo.name}}</text>
+        <view class="rating-section">
+          <text class="rating-icon">★</text>
+          <text class="rating-score">{{hallInfo.rating || 4.8}}</text>
+          <text class="rating-count">({{hallInfo.reviews ? hallInfo.reviews.length : 128}}条评价)</text>
+        </view>
+      </view>
+      
+      <view class="info-tags">
+        <view wx:for="{{hallInfo.tags || ['热门', '评分高', '有优惠']}}" wx:key="*this" class="info-tag">
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 位置信息卡片 -->
+    <view class="dance-card location-card">
+      <view class="card-header">
+        <text class="card-title">📍 位置信息</text>
+      </view>
+      <text class="info-text">{{hallInfo.address || '地址待补充📍'}}</text>
+      <view class="distance-info">
+        <text class="distance">距离您约 {{hallInfo.distance || '1.2'}}km</text>
+      </view>
+      <button class="navigate-btn" bindtap="openLocation">导航前往</button>
+    </view>
+
+    <!-- 营业时间卡片 -->
+    <view class="dance-card business-card">
+      <view class="card-header">
+        <text class="card-title">🕐 营业时间</text>
+        <view class="status-badge {{isOpen ? 'open' : 'closed'}}">
+          <text>{{isOpen ? '营业中' : '已打烊'}}</text>
+        </view>
+      </view>
+      <text class="info-text">{{hallInfo.businessHours || '营业时间暂未更新~'}}</text>
+    </view>
+
+    <!-- 特色服务卡片 -->
+    <view class="dance-card services-card">
+      <view class="card-header">
+        <text class="card-title">✨ 特色服务</text>
+      </view>
+      <view class="services-grid">
+        <view wx:for="{{hallInfo.services || ['免费WiFi', '停车场', '卡座预订', 'DJ现场']}}" wx:key="*this" class="service-item">
+          <text class="service-icon">✓</text>
+          <text class="service-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 价格信息卡片 -->
+    <view class="dance-card pricing-card">
+      <view class="card-header">
+        <text class="card-title">💰 消费参考</text>
+      </view>
+      <view class="pricing-list">
+        <view class="price-item">
+          <text class="price-label">最低消费</text>
+          <text class="price-value">¥{{hallInfo.minPrice || hallInfo.avgPrice || 98}}起</text>
+        </view>
+        <view class="price-item">
+          <text class="price-label">啤酒</text>
+          <text class="price-value">¥{{hallInfo.beerPrice || 25}}/瓶</text>
+        </view>
+        <view class="price-item">
+          <text class="price-label">卡座</text>
+          <text class="price-value">¥{{hallInfo.boothPrice || 300}}起</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 用户评价卡片 -->
+    <view class="dance-card reviews-card">
+      <view class="card-header">
+        <text class="card-title">💬 用户评价</text>
+        <button class="view-all-btn" bindtap="makeReservation">查看全部</button>
+      </view>
+      
+      <view wx:if="{{hallInfo.reviews && hallInfo.reviews.length > 0}}" class="reviews-list">
+        <view wx:for="{{hallInfo.reviews.slice(0, 2)}}" wx:key="id" class="review-item">
+          <view class="review-header">
+            <text class="reviewer-name">{{item.name || '匿名用户'}}</text>
+            <text class="review-time">{{item.time || '刚刚'}}</text>
+          </view>
+          <text class="review-content">{{item.content || '这家舞厅环境很棒，服务态度也很好！'}}</text>
+        </view>
+      </view>
+      
+      <view wx:else class="no-reviews">
+        <text class="no-reviews-icon">💬</text>
+        <text class="no-reviews-text">暂无评价，快来发表第一条吧！</text>
+        <button class="add-review-btn" bindtap="makeReservation">发表评价</button>
+      </view>
+    </view>
+  </view>
+
+
+</view>

@@ -1,0 +1,385 @@
+/* 详情页样式 - 现代UI设计 */
+
+/* 基础样式 */
+.detail-container {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+/* 图片轮播区域 */
+.gallery-container {
+  position: relative;
+  height: 400rpx;
+}
+
+.gallery-swiper {
+  height: 100%;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-icon {
+  font-size: 80rpx;
+  color: #8a2be2;
+  margin-bottom: 16rpx;
+}
+
+.placeholder-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 返回按钮 */
+.back-btn {
+  position: absolute;
+  top: 40rpx;
+  left: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.back-icon {
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+/* 收藏按钮 */
+.favorite-btn {
+  position: absolute;
+  top: 40rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.favorite-btn.active {
+  background: #ff4757;
+}
+
+.favorite-icon {
+  color: white;
+  font-size: 32rpx;
+}
+
+/* 内容区域 */
+.content-section {
+  padding: 30rpx;
+}
+
+/* 卡片基础样式 */
+.dance-card {
+  background: white;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.06);
+  border: 1rpx solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.dance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+}
+
+/* 卡片头部样式 */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.dance-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.rating-section {
+  display: flex;
+  align-items: center;
+}
+
+.rating-icon {
+  color: #ffd700;
+  font-size: 28rpx;
+  margin-right: 8rpx;
+}
+
+.rating-score {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 8rpx;
+}
+
+.rating-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 标签样式 */
+.info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.info-tag {
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  color: white;
+  padding: 8rpx 24rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+/* 信息文字样式 */
+.info-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 16rpx;
+}
+
+/* 距离信息 */
+.distance-info {
+  margin: 16rpx 0;
+}
+
+.distance {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 状态徽章 */
+.status-badge {
+  padding: 8rpx 24rpx;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+.status-badge.open {
+  background: #4cd964;
+  color: white;
+}
+
+.status-badge.closed {
+  background: #ff4757;
+  color: white;
+}
+
+/* 导航按钮 */
+.navigate-btn {
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-top: 16rpx;
+}
+
+/* 特色服务 */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+}
+
+.service-icon {
+  color: #4cd964;
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.service-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 价格列表 */
+.pricing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.price-value {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 用户评价 */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.review-item {
+  padding: 24rpx;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  border: 1rpx solid #f0f0f0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.reviewer-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.review-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 空状态 */
+.no-reviews {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.no-reviews-icon {
+  font-size: 60rpx;
+  color: #8a2be2;
+  opacity: 0.5;
+  margin-bottom: 16rpx;
+}
+
+.no-reviews-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 24rpx;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1rpx solid #f0f0f0;
+  padding: 20rpx 30rpx;
+  display: flex;
+  gap: 20rpx;
+  z-index: 100;
+}
+
+.contact-btn,
+.reserve-btn {
+  flex: 1;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 24rpx;
+}
+
+.contact-btn {
+  background: white;
+  color: #8a2be2;
+  border: 2rpx solid #8a2be2;
+}
+
+.reserve-btn {
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  color: white;
+  border: none;
+}
+
+/* 查看全部按钮 */
+.view-all-btn {
+  background: transparent;
+  color: #8a2be2;
+  border: none;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+/* 发表评价按钮 */
+.add-review-btn {
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-top: 16rpx;
+}

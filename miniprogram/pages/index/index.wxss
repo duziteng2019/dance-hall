@@ -1,0 +1,266 @@
+/**index.wxss**/
+.container {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* 升级版标题栏 */
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  color: white;
+}
+
+.header-left, .header-right {
+  width: 60rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-icon {
+  font-size: 36rpx;
+}
+
+.header-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.search-icon {
+  font-size: 32rpx;
+  opacity: 0.8;
+}
+
+/* 搜索栏样式 */
+.search-container {
+  padding: 20rpx 30rpx;
+  background: white;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 50rpx;
+  padding: 15rpx 25rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+  border-color: #8a2be2;
+  background: white;
+  box-shadow: 0 4rpx 20rpx rgba(138, 43, 226, 0.1);
+}
+
+.search-input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.search-btn {
+  font-size: 28rpx;
+  color: #8a2be2;
+  margin-left: 15rpx;
+}
+
+/* 筛选标签样式 */
+.filter-container {
+  display: flex;
+  padding: 20rpx 30rpx;
+  gap: 20rpx;
+  background: white;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.filter-tag {
+  padding: 16rpx 32rpx;
+  background: #f8f9fa;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  color: #666;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.filter-tag.active {
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4rpx 15rpx rgba(138, 43, 226, 0.3);
+}
+
+/* 列表容器 */
+.hall-list {
+  height: calc(100vh - 400rpx);
+  padding: 20rpx 0;
+}
+
+/* 卡片式舞厅设计 */
+.dance-card {
+  width: 90%;
+  margin: 20rpx auto;
+  padding: 40rpx 30rpx;
+  background: white;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0,0,0,0.06);
+  border: 1rpx solid #f0f0f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rpx;
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+}
+
+.dance-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.1);
+}
+
+/* 舞厅名称 */
+.dance-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 24rpx;
+  line-height: 1.4;
+}
+
+/* 信息项容器 */
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 8rpx 0;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 图标样式 */
+.info-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+  width: 40rpx;
+  text-align: center;
+}
+
+.location-icon {
+  color: #FFB6C1;
+}
+
+/* 信息文字 */
+.info-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.info-text.address {
+  color: #FFB6C1;
+  font-weight: 500;
+}
+
+/* 空状态样式 */
+.empty-state {
+  text-align: center;
+  padding: 120rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+  opacity: 0.6;
+}
+
+.empty-text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+/* 回到顶部按钮 */
+.back-to-top {
+  position: fixed;
+  right: 40rpx;
+  bottom: 120rpx;
+  width: 88rpx;
+  height: 88rpx;
+  background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 25rpx rgba(138, 43, 226, 0.4);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.back-to-top:active {
+  transform: scale(0.9);
+}
+
+.back-icon {
+  color: white;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+/* 骨架屏样式 */
+.skeleton {
+  background: #f8f9fa;
+  border: 1rpx solid #f0f0f0;
+}
+
+.skeleton-title {
+  height: 40rpx;
+  width: 60%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8rpx;
+  margin-bottom: 24rpx;
+}
+
+.skeleton-info {
+  height: 28rpx;
+  width: 80%;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 6rpx;
+  margin-bottom: 16rpx;
+}
+
+.skeleton-info:last-child {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

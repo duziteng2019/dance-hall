@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@vant/weapp": "^1.11.7",
+    "long": "^5.3.2",
+    "tdesign-miniprogram": "^1.10.1",
+    "vant": "^4.9.21",
+    "wx-server-sdk": "^3.0.1"
+  },
+  "devDependencies": {
+    "@anthropic-ai/claude-code": "^2.0.14",
+    "husky": "^9.1.7",
+    "miniprogram-api-typings": "^4.1.0",
+    "standard-version": "^9.5.0"
+  },
+  "name": "admin",
+  "version": "1.0.1",
+  "description": "这是一个基于微信小程序和腾讯云开发的舞厅信息查询应用。用户可以在小程序中查看全国各地的舞厅信息，包括详情、位置导航、收藏等功能。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "cp miniprogram/CHANGELOG.md miniprogram/docs/CHANGELOG.md",
+    "release": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

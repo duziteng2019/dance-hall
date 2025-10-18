@@ -1,0 +1,197 @@
+<!-- 优化后的详情页 - 现代UI设计 -->
+
+<view class="detail-page">
+  <!-- 顶部图片轮播 -->
+  <view class="image-gallery">
+    <swiper 
+      class="gallery-swiper" 
+      indicator-dots="{{true}}" 
+      autoplay="{{true}}" 
+      interval="3000"
+      indicator-color="rgba(255,255,255,0.3)"
+      indicator-active-color="var(--primary-color)"
+    >
+      <swiper-item wx:for="{{hall.images}}" wx:key="*this">
+        <image src="{{item}}" class="gallery-image" mode="aspectFill" />
+      </swiper-item>
+      <swiper-item wx:if="{{!hall.images || hall.images.length === 0}}">
+        <view class="placeholder-image">
+          <text class="placeholder-icon">💃</text>
+          <text class="placeholder-text">舞厅图片</text>
+        </view>
+      </swiper-item>
+    </swiper>
+    
+    <!-- 返回按钮 -->
+    <view class="back-btn" bindtap="onBack">
+      <text class="back-icon">‹</text>
+    </view>
+    
+    <!-- 收藏按钮 -->
+    <button 
+      class="favorite-btn {{hall.isFavorite ? 'active' : ''}}" 
+      bindtap="onToggleFavorite"
+    >
+      <image src="../../assets/icons/heart.svg" class="favorite-icon" />
+    </button>
+    
+    <!-- 轮播指示器遮罩 -->
+    <view class="swiper-overlay"></view>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <view class="content-section">
+    <!-- 基本信息 -->
+    <view class="basic-info card fade-in-up">
+      <view class="info-header">
+        <text class="hall-name">{{hall.name}}</text>
+        <view class="rating-section">
+          <view class="rating-stars">
+            <image src="../../assets/icons/star.svg" class="star-icon" />
+            <text class="rating-score">{{hall.rating || 4.8}}</text>
+          </view>
+          <text class="rating-count">({{hall.reviewCount || 128}}条评价)</text>
+        </view>
+      </view>
+      
+      <view class="info-tags">
+        <view wx:for="{{hall.tags || ['热门', '评分高', '有优惠']}}" wx:key="*this" class="info-tag">
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 位置信息 -->
+    <view class="location-card card fade-in-up">
+      <view class="card-header">
+        <view class="title-section">
+          <image src="../../assets/icons/map-pin.svg" class="card-icon" />
+          <text class="card-title">位置信息</text>
+        </view>
+        <button class="btn-navigate btn-primary" bindtap="onNavigate">
+          <image src="../../assets/icons/navigation.svg" class="navigate-icon" />
+          <text>导航</text>
+        </button>
+      </view>
+      <text class="hall-address">{{hall.address || '北京市朝阳区三里屯酒吧街'}}</text>
+      <view class="distance-info">
+        <text class="distance">距离您约 {{hall.distance || '1.2'}}km</text>
+      </view>
+    </view>
+
+    <!-- 营业信息 -->
+    <view class="business-card card fade-in-up">
+      <view class="card-header">
+        <view class="title-section">
+          <image src="../../assets/icons/clock.svg" class="card-icon" />
+          <text class="card-title">营业时间</text>
+        </view>
+        <view class="status-badge {{hall.isOpen ? 'open' : 'closed'}}">
+          <text>{{hall.isOpen ? '营业中' : '已打烊'}}</text>
+        </view>
+      </view>
+      <view class="business-hours">
+        <text class="hours-text">周一至周日 {{hall.businessHours || '19:00 - 02:00'}}</text>
+      </view>
+    </view>
+
+    <!-- 特色服务 -->
+    <view class="services-card card fade-in-up">
+      <view class="card-header">
+        <view class="title-section">
+          <image src="../../assets/icons/star.svg" class="card-icon" />
+          <text class="card-title">特色服务</text>
+        </view>
+      </view>
+      <view class="services-grid">
+        <view wx:for="{{hall.services || ['免费WiFi', '停车场', '卡座预订', 'DJ现场', '包间服务', '酒水套餐']}}" wx:key="*this" class="service-item">
+          <view class="service-check">✓</view>
+          <text class="service-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 价格信息 -->
+    <view class="pricing-card card fade-in-up">
+      <view class="card-header">
+        <view class="title-section">
+          <image src="../../assets/icons/dollar.svg" class="card-icon" />
+          <text class="card-title">消费参考</text>
+        </view>
+      </view>
+      <view class="pricing-list">
+        <view class="price-item">
+          <text class="price-label">最低消费</text>
+          <text class="price-value">¥{{hall.minPrice || 98}}起</text>
+        </view>
+        <view class="price-item">
+          <text class="price-label">啤酒</text>
+          <text class="price-value">¥{{hall.beerPrice || 25}}/瓶</text>
+        </view>
+        <view class="price-item">
+          <text class="price-label">卡座</text>
+          <text class="price-value">¥{{hall.boothPrice || 300}}起</text>
+        </view>
+        <view class="price-item">
+          <text class="price-label">包间</text>
+          <text class="price-value">¥{{hall.vipPrice || 500}}起</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 用户评价 -->
+    <view class="reviews-card card fade-in-up">
+      <view class="card-header">
+        <view class="title-section">
+          <image src="../../assets/icons/message.svg" class="card-icon" />
+          <text class="card-title">用户评价</text>
+        </view>
+        <button class="btn-all-reviews btn-secondary" bindtap="onViewAllReviews">
+          <text>查看全部</text>
+          <text class="arrow">›</text>
+        </button>
+      </view>
+      
+      <view wx:if="{{hall.reviews && hall.reviews.length > 0}}" class="reviews-list">
+        <view wx:for="{{hall.reviews.slice(0, 2)}}" wx:key="id" class="review-item">
+          <view class="review-header">
+            <view class="reviewer-avatar">
+              <text class="avatar-text">{{item.name ? item.name.charAt(0) : '?'}}</text>
+            </view>
+            <view class="reviewer-info">
+              <text class="reviewer-name">{{item.name || '匿名用户'}}</text>
+              <text class="review-time">{{item.time || '刚刚'}}</text>
+            </view>
+            <view class="review-rating">
+              <image src="../../assets/icons/star.svg" class="star-icon" />
+              <text class="rating-value">{{item.rating || 5.0}}</text>
+            </view>
+          </view>
+          <text class="review-content">{{item.content || '这家舞厅环境很棒，服务态度也很好！'}}</text>
+        </view>
+      </view>
+      
+      <view wx:else class="no-reviews">
+        <view class="no-reviews-content">
+          <text class="no-reviews-icon">💬</text>
+          <text class="no-reviews-text">暂无评价，快来发表第一条吧！</text>
+          <button class="btn-add-review btn-primary" bindtap="onAddReview">
+            <text>发表评价</text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar fade-in">
+    <button class="btn-contact btn-secondary" bindtap="onContact">
+      <image src="../../assets/icons/phone.svg" class="contact-icon" />
+      <text>联系商家</text>
+    </button>
+    <button class="btn-reserve btn-primary" bindtap="onReserve">
+      <image src="../../assets/icons/calendar.svg" class="reserve-icon" />
+      <text>立即预订</text>
+    </button>
+  </view>
+</view>

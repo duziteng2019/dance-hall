@@ -1,0 +1,109 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 升级版标题栏 -->
+  <view class="header-bar">
+    <view class="header-left">
+      <text class="logo-icon">💃</text>
+    </view>
+    <view class="header-title">舞厅小程序</view>
+    <view class="header-right">
+      <text class="search-icon">🔍</text>
+    </view>
+  </view>
+
+  <!-- 顶部搜索栏 -->
+  <view class="search-container">
+    <view class="search-box">
+      <input 
+        class="search-input" 
+        placeholder="搜索舞厅名称或地址" 
+        value="{{searchText}}"
+        bindinput="onSearchInput"
+        confirm-type="search"
+        bindconfirm="onSearchConfirm"
+      />
+      <view class="search-btn">🔍</view>
+    </view>
+  </view>
+
+  <!-- 筛选标签 -->
+  <view class="filter-container">
+    <view 
+      wx:for="{{filterOptions}}" 
+      wx:key="index"
+      class="filter-tag {{activeFilter === index ? 'active' : ''}}"
+      bindtap="onFilterTap"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 舞厅列表 -->
+  <scroll-view 
+    class="hall-list" 
+    scroll-y="true"
+    scroll-top="{{scrollTop}}"
+    bindscroll="onScroll"
+    enhanced="true"
+    show-scrollbar="false"
+  >
+    <!-- 数据加载状态 - 骨架屏 -->
+    <block wx:if="{{isLoading}}">
+      <view class="dance-card skeleton">
+        <view class="skeleton-title"></view>
+        <view class="skeleton-info"></view>
+        <view class="skeleton-info"></view>
+      </view>
+      <view class="dance-card skeleton">
+        <view class="skeleton-title"></view>
+        <view class="skeleton-info"></view>
+        <view class="skeleton-info"></view>
+      </view>
+    </block>
+    
+    <!-- 空状态 -->
+    <block wx:elif="{{filteredHalls.length === 0}}">
+      <view class="empty-state">
+        <text class="empty-icon">🎭</text>
+        <text class="empty-text">暂无舞厅信息，敬请期待～</text>
+      </view>
+    </block>
+    
+    <!-- 数据渲染 - 卡片式设计 -->
+    <block wx:else>
+      <view 
+        wx:for="{{filteredHalls}}" 
+        wx:key="id" 
+        class="dance-card"
+        bindtap="navigateToDetail"
+        data-id="{{item.id}}"
+      >
+        <!-- 舞厅名称 -->
+        <view class="dance-name">{{item.name}}</view>
+        
+        <!-- 营业时间 + 图标 -->
+        <view class="info-item">
+          <text class="info-icon">🕐</text>
+          <text class="info-text">{{item.businessHours || '营业时间暂未更新~'}}</text>
+        </view>
+        
+        <!-- 地址 + 图标 -->
+        <view class="info-item">
+          <text class="info-icon location-icon">📍</text>
+          <text class="info-text address">{{item.address || '地址待补充📍'}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!-- 回到顶部按钮 -->
+  <view 
+    wx:if="{{showBackToTop}}" 
+    class="back-to-top"
+    bindtap="backToTop"
+  >
+    <text class="back-icon">↑</text>
+  </view>
+</view>
+

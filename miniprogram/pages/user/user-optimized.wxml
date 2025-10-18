@@ -1,0 +1,153 @@
+<!-- 优化后的用户页 - 现代UI设计 -->
+
+<view class="user-page">
+  <!-- 头部背景 -->
+  <view class="header-bg"></view>
+  
+  <!-- 用户信息卡片 -->
+  <view class="user-card fade-in-up">
+    <view class="user-avatar-section">
+      <view class="avatar-wrapper">
+        <image src="../../assets/icons/avatar.png" class="avatar" />
+        <view class="avatar-badge">VIP</view>
+      </view>
+      <view class="user-info">
+        <text class="username">舞厅爱好者</text>
+        <text class="user-level">黄金会员</text>
+        <view class="user-stats">
+          <view class="stat-item">
+            <text class="stat-value">12</text>
+            <text class="stat-label">收藏</text>
+          </view>
+          <view class="stat-divider"></view>
+          <view class="stat-item">
+            <text class="stat-value">28</text>
+            <text class="stat-label">浏览</text>
+          </view>
+          <view class="stat-divider"></view>
+          <view class="stat-item">
+            <text class="stat-value">5</text>
+            <text class="stat-label">评价</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 会员进度条 -->
+    <view class="membership-progress">
+      <view class="progress-header">
+        <text class="progress-title">会员进度</text>
+        <text class="progress-percent">65%</text>
+      </view>
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: 65%"></view>
+      </view>
+      <view class="progress-note">再消费 ¥200 升级为铂金会员</view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section fade-in-up">
+    <view class="menu-title">我的功能</view>
+    
+    <view class="menu-grid">
+      <view class="menu-item" bindtap="navigateToCollection">
+        <view class="menu-icon-wrapper">
+          <image src="../../assets/icons/heart.svg" class="menu-icon" />
+        </view>
+        <text class="menu-text">我的收藏</text>
+        <text class="menu-badge">12</text>
+        <view class="menu-arrow">›</view>
+      </view>
+      
+      <view class="menu-item" bindtap="navigateToHistory">
+        <view class="menu-icon-wrapper">
+          <image src="../../assets/icons/clock.svg" class="menu-icon" />
+        </view>
+        <text class="menu-text">浏览历史</text>
+        <text class="menu-badge">28</text>
+        <view class="menu-arrow">›</view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-icon-wrapper">
+          <image src="../../assets/icons/map-pin.svg" class="menu-icon" />
+        </view>
+        <text class="menu-text">我的足迹</text>
+        <text class="menu-badge">8</text>
+        <view class="menu-arrow">›</view>
+      </view>
+      
+      <view class="menu-item">
+        <view class="menu-icon-wrapper">
+          <image src="../../assets/icons/star.svg" class="menu-icon" />
+        </view>
+        <text class="menu-text">我的评价</text>
+        <text class="menu-badge">5</text>
+        <view class="menu-arrow">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 设置选项 -->
+  <view class="settings-section fade-in-up">
+    <view class="menu-title">设置</view>
+    
+    <view class="settings-list">
+      <view class="setting-item">
+        <view class="setting-left">
+          <view class="setting-icon-wrapper">
+            <image src="../../assets/icons/bell.svg" class="setting-icon" />
+          </view>
+          <text class="setting-text">消息通知</text>
+        </view>
+        <switch checked="{{true}}" color="var(--primary-color)" />
+      </view>
+      
+      <view class="setting-item">
+        <view class="setting-left">
+          <view class="setting-icon-wrapper">
+            <image src="../../assets/icons/moon.svg" class="setting-icon" />
+          </view>
+          <text class="setting-text">夜间模式</text>
+        </view>
+        <switch color="var(--primary-color)" />
+      </view>
+      
+      <view class="setting-item" bindtap="navigateToPrivacy">
+        <view class="setting-left">
+          <view class="setting-icon-wrapper">
+            <image src="../../assets/icons/lock.svg" class="setting-icon" />
+          </view>
+          <text class="setting-text">隐私设置</text>
+        </view>
+        <view class="setting-arrow">›</view>
+      </view>
+      
+      <view class="setting-item" bindtap="navigateToFeedback">
+        <view class="setting-left">
+          <view class="setting-icon-wrapper">
+            <image src="../../assets/icons/message-square.svg" class="setting-icon" />
+          </view>
+          <text class="setting-text">意见反馈</text>
+        </view>
+        <view class="setting-arrow">›</view>
+      </view>
+      
+      <view class="setting-item" bindtap="navigateToAbout">
+        <view class="setting-left">
+          <view class="setting-icon-wrapper">
+            <image src="../../assets/icons/info.svg" class="setting-icon" />
+          </view>
+          <text class="setting-text">关于我们</text>
+        </view>
+        <view class="setting-arrow">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-actions fade-in-up">
+    <button class="btn-logout" bindtap="onLogout">退出登录</button>
+  </view>
+</view>

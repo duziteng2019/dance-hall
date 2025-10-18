@@ -1,0 +1,51 @@
+<!-- 我的页面 -->
+<view class="profile-container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-avatar">
+      <text class="avatar-text">{{userInfo.nickname ? userInfo.nickname.charAt(0) : '用'}}</text>
+    </view>
+    <view class="user-info">
+      <text class="user-name">{{userInfo.nickname || '未登录用户'}}</text>
+      <text class="user-desc">{{userInfo.desc || '点击登录，享受更多服务'}}</text>
+    </view>
+    <button class="login-btn" bindtap="onLogin" wx:if="{{!userInfo.isLogin}}">
+      <text>登录</text>
+    </button>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="onMenuTap" data-type="favorites">
+      <text class="menu-icon">💖</text>
+      <text class="menu-text">我的收藏</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item" bindtap="onMenuTap" data-type="history">
+      <text class="menu-icon">📖</text>
+      <text class="menu-text">浏览历史</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item" bindtap="onMenuTap" data-type="reviews">
+      <text class="menu-icon">💬</text>
+      <text class="menu-text">我的评价</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    
+    <view class="menu-item" bindtap="onMenuTap" data-type="settings">
+      <text class="menu-icon">⚙️</text>
+      <text class="menu-text">设置</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 关于信息 -->
+  <view class="about-section">
+    <text class="about-title">关于舞厅助手</text>
+    <text class="about-desc">发现身边的精彩舞厅，享受夜生活的美好时光</text>
+    <text class="version-info">版本 1.0.0</text>
+  </view>
+</view>
+

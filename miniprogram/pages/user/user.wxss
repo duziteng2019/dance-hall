@@ -1,0 +1,385 @@
+/* 多巴胺风格用户页面 - 鲜艳、圆润、愉悦 */
+
+page {
+  background: linear-gradient(135deg, #FAFAFA 0%, #F8FAFC 100%);
+  min-height: 100vh;
+}
+
+.user-container {
+  padding: var(--space-4);
+}
+
+/* 用户信息卡片 */
+.user-header {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-8) var(--space-6);
+  margin-bottom: var(--space-6);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.user-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 30rpx 30rpx;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-20rpx) rotate(360deg); }
+}
+
+.avatar-section {
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--space-4);
+}
+
+.avatar-wrapper {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  backdrop-filter: blur(10rpx);
+  border: 3rpx solid rgba(255,255,255,0.3);
+}
+
+.avatar-icon {
+  font-size: 48rpx;
+  color: white;
+}
+
+.user-info {
+  position: relative;
+  z-index: 2;
+}
+
+.user-name {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: white;
+  margin-bottom: var(--space-2);
+  text-shadow: 0 2rpx 4rpx rgba(0,0,0,0.1);
+}
+
+.user-level {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  backdrop-filter: blur(10rpx);
+}
+
+.login-btn {
+  background: rgba(255,255,255,0.9);
+  color: var(--dopamine-purple);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-top: var(--space-4);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.login-btn:active {
+  transform: scale(0.95);
+  background: white;
+}
+
+/* 数据统计卡片 */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.stat-card {
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-5);
+  text-align: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border: 1rpx solid var(--border-color);
+}
+
+.stat-card:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-3);
+  font-size: var(--font-size-lg);
+  color: white;
+}
+
+.stat-icon.favorite {
+  background: var(--gradient-warning);
+}
+
+.stat-icon.history {
+  background: var(--gradient-success);
+}
+
+.stat-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* 功能菜单 */
+.menu-section {
+  margin-bottom: var(--space-6);
+}
+
+.menu-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-2);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.menu-item {
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-5);
+  text-align: center;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  border: 1rpx solid var(--border-color);
+}
+
+.menu-item:active {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-md);
+}
+
+.menu-icon {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-3);
+  font-size: var(--font-size-xl);
+  color: white;
+  transition: all var(--transition-fast);
+}
+
+.menu-item:active .menu-icon {
+  transform: scale(1.1);
+}
+
+.menu-icon.collection {
+  background: var(--gradient-primary);
+}
+
+.menu-icon.history {
+  background: var(--gradient-secondary);
+}
+
+.menu-icon.clear {
+  background: var(--gradient-warning);
+}
+
+.menu-icon.contact {
+  background: var(--gradient-success);
+}
+
+.menu-label {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 底部信息 */
+.footer-section {
+  text-align: center;
+  padding: var(--space-6) 0;
+}
+
+.app-info {
+  background: white;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  border: 1rpx solid var(--border-color);
+}
+
+.app-name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.app-version {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.about-btn {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.about-btn:active {
+  transform: scale(0.95);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .user-container {
+    padding: var(--space-3);
+  }
+  
+  .user-header {
+    padding: var(--space-6) var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  
+  .avatar-wrapper {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  
+  .user-name {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* 动画效果 */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideInUp {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-bounceIn {
+  animation: bounceIn 0.6s ease-out;
+}
+
+/* 彩色圆点装饰 */
+.dot-decoration {
+  position: absolute;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: var(--radius-full);
+  background: var(--dopamine-pink);
+  animation: floatDot 3s ease-in-out infinite;
+}
+
+.dot-decoration:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.dot-decoration:nth-child(2) {
+  top: 60%;
+  right: 15%;
+  background: var(--dopamine-cyan);
+  animation-delay: 1s;
+}
+
+.dot-decoration:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  background: var(--dopamine-yellow);
+  animation-delay: 2s;
+}
+
+@keyframes floatDot {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10rpx) scale(1.2);
+  }
+}

@@ -1,0 +1,46 @@
+<!-- 页面标题 -->
+<view class="header">
+  <text class="title">我的收藏</text>
+</view>
+
+<!-- 空状态 -->
+<view wx:if="{{!loading && favorites.length === 0}}" class="empty-state">
+  <view class="empty-icon">❤️</view>
+  <text class="empty-title">暂无收藏</text>
+  <text class="empty-subtitle">去首页发现更多舞厅吧</text>
+  <button class="btn-primary" bindtap="goToIndex">去首页逛逛</button>
+</view>
+
+<!-- 收藏列表 -->
+<view wx:else class="collection-list">
+  <view wx:for="{{favorites}}" wx:key="_id" class="collection-item">
+    <image src="{{item.image}}" class="item-image" mode="aspectFill" lazy-load="true" />
+    
+    <view class="item-content">
+      <text class="item-name">{{item.name}}</text>
+      <view class="item-info">
+        <text class="location-icon">📍</text>
+        <text class="item-address">{{item.address}}</text>
+      </view>
+      
+      <view class="item-meta">
+        <text wx:if="{{item.rating}}" class="rating">⭐ {{item.rating}}</text>
+        <text class="collect-time">收藏于 {{item.collectTime}}</text>
+      </view>
+    </view>
+    
+    <view class="item-actions">
+      <button class="btn-detail" bindtap="navigateToDetail" data-id="{{item._id}}">查看详情</button>
+      <button class="btn-remove" bindtap="removeFavorite" data-id="{{item._id}}">取消收藏</button>
+    </view>
+  </view>
+</view>
+
+<!-- 加载状态 -->
+<view wx:if="{{loading}}" class="loading-container">
+  <view class="loading-shimmer" wx:for="{{[1,2,3]}}" wx:key="index">
+    <view class="shimmer-image"></view>
+    <view class="shimmer-text"></view>
+    <view class="shimmer-text short"></view>
+  </view>
+</view>

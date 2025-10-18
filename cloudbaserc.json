@@ -1,0 +1,49 @@
+{
+    "envId": "cloud1-3gffxfbw1b36f8a6",
+    "version": "2.0",
+    "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+    "functionRoot": "./functions",
+    "functions": [],
+    "ai": {
+        "defaultAgent": "{{env.AI_DEFAULT_AGENT}}",
+        "agents": {
+            "codebuddy": {
+                "type": "none"
+            },
+            "aider": {
+                "type": "cloudbase",
+                "provider": "kimi-exp",
+                "model": "kimi-k2-instruct-local"
+            },
+            "codex": {
+                "type": "cloudbase",
+                "provider": "longcat",
+                "model": "LongCat-Flash-Chat"
+            },
+            "claude": {
+                "type": "cloudbase",
+                "provider": "kimi-exp",
+                "model": "kimi-k2-instruct-local"
+            }
+        }
+    },
+    "framework": {
+        "name": "ADMIN",
+        "plugins": {
+            "function": {
+                "use": "@cloudbase/framework-plugin-function",
+                "inputs": {
+                    "functionRootPath": "./functions"
+                }
+            },
+            "mp": {
+                "use": "@cloudbase/framework-plugin-mp",
+                "inputs": {
+                    "appid": "",
+                    "privateKeyPath": "./private.key"
+                }
+            }
+        }
+    },
+    "region": "ap-shanghai"
+}

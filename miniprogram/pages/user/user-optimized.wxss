@@ -1,0 +1,320 @@
+/* 优化后的用户页样式 - 现代UI设计 */
+
+.user-page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+/* 头部背景 */
+.header-bg {
+  height: 200rpx;
+  background: var(--primary-gradient);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  margin: var(--space-6) var(--space-4) var(--space-4);
+  position: relative;
+  z-index: 2;
+  border: 1rpx solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+}
+
+.user-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: var(--radius-full);
+  border: 3rpx solid var(--primary-color);
+}
+
+.avatar-badge {
+  position: absolute;
+  top: -4rpx;
+  right: -4rpx;
+  background: var(--warning-color);
+  color: white;
+  padding: 2rpx var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.username {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.user-level {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.user-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 24rpx;
+  background: var(--border-color);
+}
+
+/* 会员进度条 */
+.membership-progress {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.progress-title {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.progress-percent {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.progress-bar {
+  height: 6rpx;
+  background: var(--border-light);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary-gradient);
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+.progress-note {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+/* 功能菜单 */
+.menu-section {
+  margin: var(--space-4);
+}
+
+.menu-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.menu-grid {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1rpx solid var(--border-light);
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-4);
+  border-bottom: 1rpx solid var(--border-light);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon-wrapper {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--space-3);
+}
+
+.menu-icon {
+  width: 20rpx;
+  height: 20rpx;
+  color: var(--primary-color);
+}
+
+.menu-text {
+  flex: 1;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.menu-badge {
+  background: var(--error-color);
+  color: white;
+  padding: 2rpx var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  margin-right: var(--space-3);
+}
+
+.menu-arrow {
+  color: var(--text-tertiary);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+/* 设置选项 */
+.settings-section {
+  margin: var(--space-4);
+}
+
+.settings-list {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 1rpx solid var(--border-light);
+  overflow: hidden;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1rpx solid var(--border-light);
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.setting-icon-wrapper {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setting-icon {
+  width: 16rpx;
+  height: 16rpx;
+  color: var(--text-secondary);
+}
+
+.setting-text {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.setting-arrow {
+  color: var(--text-tertiary);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+/* 底部操作 */
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-top: 1rpx solid var(--border-light);
+  padding: var(--space-3) var(--space-4);
+  z-index: 100;
+}
+
+.btn-logout {
+  width: 100%;
+  background: var(--error-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+/* 动画效果 */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+  .user-card {
+    margin: var(--space-4) var(--space-3);
+  }
+  
+  .menu-section,
+  .settings-section {
+    margin: var(--space-4) var(--space-3);
+  }
+}

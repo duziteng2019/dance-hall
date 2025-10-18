@@ -1,0 +1,144 @@
+<!-- 顶部导航栏 -->
+<view class="top-nav">
+  <view class="nav-content">
+    <text class="nav-title">💃 舞厅探索</text>
+    <view class="nav-actions">
+      <button class="btn-icon" bindtap="onSearchFocus">
+        <text class="icon">🔍</text>
+      </button>
+      <button class="btn-icon" bindtap="onFilterToggle">
+        <text class="icon">⚙️</text>
+      </button>
+    </view>
+  </view>
+</view>
+
+<!-- 搜索栏 -->
+<view class="search-section fade-in">
+  <view class="search-container">
+    <view class="search-input-wrapper">
+      <text class="search-icon">🔍</text>
+      <input 
+        placeholder="搜索舞厅、地址、类型..." 
+        bindinput="onSearchInput" 
+        class="search-input"
+        confirm-type="search"
+      />
+      <button wx:if="{{searchText}}" class="btn-clear" bindtap="onClearSearch">
+        <text class="clear-icon">✕</text>
+      </button>
+    </view>
+  </view>
+</view>
+
+<!-- 快速筛选 -->
+<view class="quick-filters fade-in">
+  <scroll-view scroll-x class="filter-scroll" show-scrollbar="{{false}}">
+    <view class="filter-list">
+      <view 
+        wx:for="{{['全部', '热门推荐', '附近', '评分高', '新开业', '有优惠']}}"
+        wx:key="index"
+        class="filter-tag {{activeFilter === index ? 'active' : ''}}"
+        bindtap="onFilterTagTap"
+        data-index="{{index}}"
+      >
+        <text class="tag-text">{{item}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 舞厅列表 -->
+<view class="content-section">
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-state">
+    <view class="skeleton-list">
+      <view wx:for="{{[1,2,3,4]}}" wx:key="index" class="skeleton-card">
+        <view class="skeleton-image"></view>
+        <view class="skeleton-content">
+          <view class="skeleton-line long"></view>
+          <view class="skeleton-line medium"></view>
+          <view class="skeleton-line short"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{!loading && filteredHalls.length === 0}}" class="empty-state">
+    <view class="empty-illustration">
+      <text class="empty-icon">💃</text>
+    </view>
+    <text class="empty-title">没有找到相关舞厅</text>
+    <text class="empty-subtitle">换个筛选条件或搜索关键词试试</text>
+    <view class="empty-actions">
+      <button class="btn-primary" bindtap="onResetFilters">重置筛选</button>
+      <button class="btn-secondary" bindtap="onRefresh">重新加载</button>
+    </view>
+  </view>
+
+  <!-- 舞厅网格 -->
+  <view wx:else class="hall-grid">
+    <view 
+      wx:for="{{filteredHalls}}" 
+      wx:key="_id" 
+      class="hall-card"
+      bindtap="navigateToDetail" 
+      data-id="{{item._id}}"
+      hover-class="card-hover"
+      hover-stay-time="50"
+    >
+      <!-- 卡片封面 -->
+      <view class="card-media">
+        <image 
+          src="{{item.image}}" 
+          class="card-image"
+          mode="aspectFill" 
+          lazy-load="true"
+          binderror="onImageError"
+        />
+        
+        <!-- 评分标签 -->
+        <view wx:if="{{item.rating}}" class="rating-badge">
+          <text class="rating-icon">⭐</text>
+          <text class="rating-text">{{item.rating}}</text>
+        </view>
+        
+        <!-- 收藏按钮 -->
+        <button 
+          class="favorite-btn {{item.isFavorite ? 'active' : ''}}"
+          bindtap="onToggleFavorite" 
+          data-id="{{item._id}}"
+        >
+          <text class="favorite-icon">{{item.isFavorite ? '❤️' : '🤍'}}</text>
+        </button>
+      </view>
+
+      <!-- 卡片内容 -->
+      <view class="card-body">
+        <text class="hall-name">{{item.name}}</text>
+        
+        <view class="hall-info">
+          <text class="location-icon">📍</text>
+          <text class="hall-address">{{item.address}}</text>
+        </view>
+        
+        <view class="card-footer">
+          <view class="hall-tags">
+            <text wx:if="{{item.isNew}}" class="tag new-tag">新开业</text>
+            <text wx:if="{{item.hasDiscount}}" class="tag discount-tag">有优惠</text>
+          </view>
+          
+          <button class="btn-detail" bindtap="navigateToDetail" data-id="{{item._id}}">
+            <text>查看详情</text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 回到顶部 -->
+<view wx:if="{{showBackToTop}}" class="back-to-top" bindtap="onBackToTop">
+  <text class="back-icon">⬆️</text>
+</view>

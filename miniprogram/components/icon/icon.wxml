@@ -1,0 +1,3 @@
+<view class="icon icon-{{type}} {{customClass}}" style="{{customStyle}}">
+  <text class="icon-text">{{iconText}}</text>
+</view>

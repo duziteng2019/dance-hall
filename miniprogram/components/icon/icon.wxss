@@ -1,0 +1,54 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.icon-text {
+  font-size: 32rpx;
+  line-height: 1;
+}
+
+/* 尺寸变体 */
+.icon.size-small .icon-text {
+  font-size: 24rpx;
+}
+
+.icon.size-medium .icon-text {
+  font-size: 32rpx;
+}
+
+.icon.size-large .icon-text {
+  font-size: 40rpx;
+}
+
+.icon.size-xl .icon-text {
+  font-size: 48rpx;
+}
+
+/* 颜色变体 */
+.icon-primary .icon-text {
+  color: var(--primary-color);
+}
+
+.icon-secondary .icon-text {
+  color: var(--text-secondary);
+}
+
+.icon-success .icon-text {
+  color: var(--success-color);
+}
+
+.icon-warning .icon-text {
+  color: var(--warning-color);
+}
+
+.icon-error .icon-text {
+  color: var(--error-color);
+}
+
+/* 交互效果 */
+.icon:active {
+  transform: scale(0.95);
+}

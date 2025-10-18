@@ -1,0 +1,463 @@
+/* 优化后的详情页样式 - 现代UI设计 */
+
+/* 页面基础样式 */
+.detail-page {
+  background: var(--bg-primary);
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+/* 图片轮播区域 */
+.image-gallery {
+  position: relative;
+  height: 400rpx;
+}
+
+.gallery-swiper {
+  height: 100%;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-tertiary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-icon {
+  font-size: 80rpx;
+  opacity: 0.5;
+  margin-bottom: var(--space-2);
+}
+
+.placeholder-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+.swiper-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60rpx;
+  background: linear-gradient(transparent, rgba(0,0,0,0.3));
+  pointer-events: none;
+}
+
+/* 返回按钮 */
+.back-btn {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10rpx);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.back-icon {
+  color: white;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+/* 收藏按钮 */
+.favorite-btn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10rpx);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.favorite-btn.active {
+  background: var(--error-color);
+}
+
+.favorite-icon {
+  width: 20rpx;
+  height: 20rpx;
+  color: white;
+}
+
+/* 内容区域 */
+.content-section {
+  padding: var(--space-4);
+}
+
+/* 基本信息卡片 */
+.basic-info {
+  margin-top: -60rpx;
+  position: relative;
+  z-index: 5;
+}
+
+.info-header {
+  margin-bottom: var(--space-3);
+}
+
+.hall-name {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.star-icon {
+  width: 20rpx;
+  height: 20rpx;
+  color: #ffd700;
+}
+
+.rating-score {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.rating-count {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+.info-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.info-tag {
+  background: var(--primary-gradient);
+  color: white;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  border: 1rpx solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.card-icon {
+  width: 20rpx;
+  height: 20rpx;
+  color: var(--primary-color);
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 位置信息 */
+.hall-address {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  line-height: 1.5;
+}
+
+.distance-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.distance {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* 状态徽章 */
+.status-badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.status-badge.open {
+  background: var(--success-color);
+  color: white;
+}
+
+.status-badge.closed {
+  background: var(--error-color);
+  color: white;
+}
+
+/* 营业时间 */
+.business-hours {
+  display: flex;
+  align-items: center;
+}
+
+.hours-text {
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+}
+
+/* 特色服务 */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.service-check {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: var(--radius-full);
+  background: var(--success-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.service-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+/* 价格信息 */
+.pricing-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.price-value {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 用户评价 */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.review-item {
+  padding: var(--space-3);
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1rpx solid var(--border-light);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  gap: var(--space-2);
+}
+
+.reviewer-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-text {
+  font-size: var(--font-size-sm);
+  color: white;
+  font-weight: 600;
+}
+
+.reviewer-info {
+  flex: 1;
+}
+
+.reviewer-name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.review-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.review-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.rating-value {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.review-content {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 空状态 */
+.no-reviews-content {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.no-reviews-icon {
+  font-size: 48rpx;
+  opacity: 0.5;
+  margin-bottom: var(--space-3);
+}
+
+.no-reviews-text {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+/* 按钮样式 */
+.btn-navigate,
+.btn-all-reviews,
+.btn-add-review {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  border: none;
+}
+
+.btn-navigate .navigate-icon,
+.btn-contact .contact-icon,
+.btn-reserve .reserve-icon {
+  width: 16rpx;
+  height: 16rpx;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border-top: 1rpx solid var(--border-light);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  z-index: 100;
+}
+
+.btn-contact,
+.btn-reserve {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  border: none;
+}
+
+/* 动画效果 */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 响应式调整 */
+@media (max-width: 375px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hall-name {
+    font-size: var(--font-size-xl);
+  }
+}
