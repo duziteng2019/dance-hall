@@ -12,9 +12,9 @@
     "miniprogram-api-typings": "^4.1.0",
     "standard-version": "^9.5.0"
   },
-  "name": "admin",
+  "name": "dance-hall",
   "version": "1.0.1",
-  "description": "这是一个基于微信小程序和腾讯云开发的舞厅信息查询应用。用户可以在小程序中查看全国各地的舞厅信息，包括详情、位置导航、收藏等功能。",
+  "description": "\u8fd9\u662f\u4e00\u4e2a\u57fa\u4e8e\u5fae\u4fe1\u5c0f\u7a0b\u5e8f\u548c\u817e\u8baf\u4e91\u5f00\u53d1\u7684\u821e\u5385\u4fe1\u606f\u67e5\u8be2\u5e94\u7528\u3002\u7528\u6237\u53ef\u4ee5\u5728\u5c0f\u7a0b\u5e8f\u4e2d\u67e5\u770b\u5168\u56fd\u5404\u5730\u7684\u821e\u5385\u4fe1\u606f\uff0c\u5305\u62ec\u8be6\u60c5\u3001\u4f4d\u7f6e\u5bfc\u822a\u3001\u6536\u85cf\u7b49\u529f\u80fd\u3002",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
